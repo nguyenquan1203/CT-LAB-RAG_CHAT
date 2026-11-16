@@ -1,0 +1,98 @@
+[
+  {
+    "id": "G01",
+    "title": "Independence Palace",
+    "text": "Independence Palace is a historic site at 135 Nam Ky Khoi Nghia in Ho Chi Minh City. Its artifacts and exhibition spaces introduce the history, culture and architecture of the building.",
+    "source": "https://dinhdoclap.gov.vn/",
+    "category": "historical_site",
+    "tags": ["history", "architecture", "Independence Palace"]
+  },
+  {
+    "id": "G02",
+    "title": "War Remnants Museum",
+    "text": "The War Remnants Museum is at 28 Vo Van Tan in Ho Chi Minh City. It displays photographs and wartime artifacts, with aircraft, tanks and helicopters in the courtyard.",
+    "source": "https://vietnam.travel/things-to-do/7-must-see-attractions-hcmc/",
+    "category": "museum",
+    "tags": ["museum", "history", "war"]
+  },
+  {
+    "id": "G03",
+    "title": "Saigon Central Post Office",
+    "text": "The Saigon Central Post Office is at 2 Cong Xa Paris, opposite Notre Dame Cathedral. Inside are a large hall, old wooden telephone booths and historical maps on the walls.",
+    "source": "https://vietnam.travel/things-to-do/7-must-see-attractions-hcmc/",
+    "category": "architecture",
+    "tags": ["post office", "Cong Xa Paris", "architecture"]
+  },
+  {
+    "id": "G04",
+    "title": "Notre Dame Cathedral",
+    "text": "Notre Dame Cathedral stands in the Cong Xa Paris area, near the Saigon Central Post Office. Its twin bell towers are a recognizable feature of the building.",
+    "source": "https://vietnam.travel/things-to-do/7-must-see-attractions-hcmc/",
+    "category": "religious_site",
+    "tags": ["cathedral", "architecture", "Cong Xa Paris"]
+  },
+  {
+    "id": "G05",
+    "title": "Ben Thanh Market",
+    "text": "Ben Thanh Market is in central Ho Chi Minh City. Its stalls sell food and souvenirs such as conical hats and lacquerware, while food vendors offer dishes including banh mi and banh xeo.",
+    "source": "https://vietnam.travel/things-to-do/7-must-see-attractions-hcmc/",
+    "category": "market",
+    "tags": ["market", "shopping", "souvenirs", "food"]
+  },
+  {
+    "id": "G06",
+    "title": "Nguyen Hue Walking Street",
+    "text": "Nguyen Hue Walking Street runs from the City Hall area toward Bach Dang Wharf. Shops and restaurants surround this central pedestrian space.",
+    "source": "https://vietnam.travel/things-to-do/7-must-see-attractions-hcmc/",
+    "category": "walking_street",
+    "tags": ["walking", "Nguyen Hue", "Bach Dang"]
+  },
+  {
+    "id": "G07",
+    "title": "Saigon Opera House",
+    "text": "The Saigon Opera House is a performing arts venue on the central sightseeing route along Dong Khoi Street. This guide does not include show schedules or ticket prices.",
+    "source": "https://vietnam.travel/things-to-do/ho-chi-minh-city-itinerary/",
+    "category": "theatre",
+    "tags": ["theatre", "performing arts", "Dong Khoi"]
+  },
+  {
+    "id": "G08",
+    "title": "Binh Tay Market and Cholon",
+    "text": "Binh Tay Market is a wholesale trading center in Cholon, Ho Chi Minh City's Chinese quarter. Visitors can explore the area's streets and markets on foot.",
+    "source": "https://vietnam.travel/place-to-go/southeastern-vietnam/ho-chi-minh-city/",
+    "category": "market",
+    "tags": ["Cholon", "Chinese heritage", "market", "wholesale"]
+  },
+  {
+    "id": "G09",
+    "title": "Thien Hau Temple",
+    "text": "Thien Hau Temple is a religious site in Cholon dedicated to the sea goddess Thien Hau. It offers an introduction to the Chinese community's cultural traditions in Ho Chi Minh City.",
+    "source": "https://vietnam.travel/place-to-go/southeastern-vietnam/ho-chi-minh-city/",
+    "category": "religious_site",
+    "tags": ["temple", "Thien Hau", "Cholon", "culture"]
+  },
+  {
+    "id": "G10",
+    "title": "Cu Chi Tunnels",
+    "text": "The Cu Chi Tunnels are a historic underground tunnel network developed during the resistance against French forces and expanded during the war against American forces. The tunnels supported shelter, daily life and resistance activities.",
+    "source": "https://dsvh.gov.vn/di-tich-lich-su-dia-dao-cu-chi-1490",
+    "category": "historical_site",
+    "tags": ["Cu Chi", "tunnels", "history", "underground"]
+  },
+  {
+    "id": "G11",
+    "title": "Ho Chi Minh City Street Food",
+    "text": "Street food experiences in Ho Chi Minh City include banh mi sandwiches, banh xeo savory pancakes and com tam broken rice. This guide introduces the dishes but does not list prices or rank restaurants.",
+    "source": "https://vietnam.travel/place-to-go/southeastern-vietnam/ho-chi-minh-city/",
+    "category": "food",
+    "tags": ["food", "banh mi", "banh xeo", "com tam"]
+  },
+  {
+    "id": "G12",
+    "title": "Ho Chi Minh City Weather and Travel Seasons",
+    "text": "Ho Chi Minh City is hot throughout the year. The dry season is usually December through April, and the rainy season is usually May through November, with possible afternoon showers.",
+    "source": "https://vietnam.travel/place-to-go/southeastern-vietnam/ho-chi-minh-city/",
+    "category": "travel_tip",
+    "tags": ["weather", "dry season", "rainy season", "climate"]
+  }
+]

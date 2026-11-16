@@ -1,0 +1,6 @@
+# Python 3.11+. Three versions are reused from the instructor's Lab 3.
+streamlit==1.66.0
+requests==2.34.2
+python-dotenv==1.2.2
+numpy==2.2.6
+
