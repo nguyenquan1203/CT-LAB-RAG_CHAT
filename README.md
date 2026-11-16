@@ -1,7 +1,6 @@
 # Travel Assistant with RAG Chat
 
 
-
 ## Student information
 
 | Field | Value |
@@ -9,7 +8,8 @@
 | Full name | **Nguyễn Anh Quân** |
 | Student ID | **25127123** |
 | Chosen city | Ho Chi Minh City, Vietnam |
-| Demonstration video | **[Add an accessible video URL before submission]** |
+| Demonstration video | [Link](https://youtu.be/k4U7tv46oe0) |
+| Repo link | [Repo](https://github.com/nguyenquan1203/CT-LAB-RAG_CHAT.git)| 
 
 ## Installation and configuration
 
@@ -65,7 +65,7 @@ Use the instructor's server notebook from class:
 | [rag.py](./rag.py) | Embedding, cosine retrieval, context construction and generation |
 | [config.py](./config.py) | Environment settings, model names, top-k and data path |
 | [knowledge_base.json](./knowledge_base.json) | The 12-entry travel guide |
-| [evaluate.py](./evaluate.py) | Six live-server questions and a report for manual review |
+| [evaluate.py](./evaluate.py) | Six required questions plus one multi-entry retrieval-limit test |
 | [test_app.py](./test_app.py) | Offline regression tests with mocked service responses |
 | [VIDEO_SCRIPT.md](./VIDEO_SCRIPT.md) | Vietnamese script and recording guide, with English questions to paste into the app |
 
@@ -89,9 +89,10 @@ guide does not include admission fees, opening hours or live weather forecasts.
 
 ## Test table required by the assignment
 
-**Latest verified live evaluation: 6 of 6 questions passed on November 16, 2026.**
-The results below use the latest evaluation report. Each final answer was
-compared with the guide.
+**Live evaluation on November 16, 2026: 6 passed and 1 failed out of 7 questions.**
+The first six questions cover the required 3 answerable, 1 paraphrase and 2
+outside-the-guide cases; all six passed. Question 7 is an additional multi-entry
+test that exposed a retrieval limit. Each final answer was compared with the guide.
 
 | Type | Question | Expected entry ID | Retrieved IDs | Correct? | Failure stage if incorrect |
 |---|---|---|---|---|---|
@@ -101,6 +102,7 @@ compared with the guide.
 | Paraphrase | What is the street address of the post office opposite Notre Dame Cathedral? | G03 | G03, G04, G06 | Yes | None |
 | Outside the guide | How much is admission to the War Remnants Museum? | None: the fee is absent | G02, G01, G07 | Yes: correct refusal | None |
 | Outside the guide | Will it rain in Ho Chi Minh City tomorrow? | None: no forecast is stored | G12, G11, G02 | Yes: correct refusal | None |
+| Multi-entry limit | Give the addresses of Independence Palace, the Saigon Central Post Office and the War Remnants Museum, and the usual dry-season months in Ho Chi Minh City. | G01, G02, G03, G12 | G01, G03, G02 | No: dry-season information omitted | Retrieval: G12 missing from top-3 |
 
 | Question | Recorded top-3 cosine scores |
 |---|---|
@@ -110,10 +112,12 @@ compared with the guide.
 | Paraphrased post office address | G03=0.6107, G04=0.5574, G06=0.3597 |
 | Museum admission fee | G02=0.5219, G01=0.2965, G07=0.2451 |
 | Tomorrow's weather | G12=0.6716, G11=0.4185, G02=0.3977 |
+| Multi-entry query | G01=0.5966, G03=0.5464, G02=0.5427 |
 
-The expected entry ranked first for all four answerable/paraphrase questions.
-All four produced supported final answers; the two unsupported requests were
-correctly refused. Offline test passes remain separate from these live results.
+For the first six cases, the expected entry ranked first for all four
+answerable/paraphrase questions. These four answers were supported and the two
+unsupported requests were correctly refused. The additional seventh case failed
+to answer every requested part. Offline test passes remain separate from these live results.
 
 ### Observed final answers
 
@@ -121,10 +125,23 @@ correctly refused. Offline test passes remain separate from these live results.
 |---|---|
 | 1 | The Saigon Central Post Office is at 2 Cong Xa Paris [G03]. |
 | 2 | Nguyen Hue Walking Street runs from the City Hall area to Bach Dang Wharf. [G06] |
-| 3 | The dry season in Ho Chi Minh City is usually December through April. [G12] |
-| 4 | The Saigon Central Post Office, opposite Notre Dame Cathedral, is at 2 Cong Xa Paris [G03]. |
+| 3 | The dry season in Ho Chi Minh City usually spans December through April [G12]. |
+| 4 | The street address of the post office opposite Notre Dame Cathedral is 2 Cong Xa Paris [G03]. |
 | 5 | I don't know. This information is not in the travel guide. |
-| 6 | I don't know. This information is not in the travel guide. [G12] describes seasonal patterns but does not provide specific forecasts for tomorrow. |
+| 6 | I don't know. This information is not in the travel guide. |
+| 7 | Independence Palace is at 135 Nam Ky Khoi Nghia [G01]. Saigon Central Post Office is at 2 Cong Xa Paris [G03]. War Remnants Museum is at 28 Vo Van Tan [G02]. The usual dry-season months in Ho Chi Minh City are not in the travel guide. |
+
+### Question 7: failure analysis
+
+The expected complete answer needs four entries: G01, G02 and G03 for the three
+addresses, plus G12 for the usual dry-season months (December through April).
+With `k = 3`, retrieval returned G01, G03 and G02, leaving G12 out of the context.
+
+The actual response gave the three correct addresses but claimed the dry-season
+months were unavailable. That information exists in G12, so the primary failure
+is **retrieval**, not missing guide data. The answer is incomplete for this question.
+Possible improvements are to split multi-part questions or evaluate a larger k.
+The test was run with the existing guide and k unchanged.
 
 Expected answers: G03 gives **2 Cong Xa Paris**; G06 runs from the **City Hall area
 toward Bach Dang Wharf**; G12 gives **December through April** for the usual dry season.

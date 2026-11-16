@@ -1,4 +1,4 @@
-"""Run six questions against the real server and export results for manual review."""
+"""Run six required questions plus one multi-entry limit test on the real server."""
 
 from pathlib import Path
 
@@ -12,6 +12,12 @@ CASES = [
     ("Paraphrase", "What is the street address of the post office opposite Notre Dame Cathedral?", "G03"),
     ("Outside the guide", "How much is admission to the War Remnants Museum?", "None"),
     ("Outside the guide", "Will it rain in Ho Chi Minh City tomorrow?", "None"),
+    (
+        "Multi-entry limit",
+        "Give the addresses of Independence Palace, the Saigon Central Post Office "
+        "and the War Remnants Museum, and the usual dry-season months in Ho Chi Minh City.",
+        "G01, G02, G03, G12",
+    ),
 ]
 
 
